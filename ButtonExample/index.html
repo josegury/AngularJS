@@ -1,0 +1,51 @@
+<!doctype html>
+<html ng-app="miApp" >
+  <head>
+	<meta charset="utf-8">
+    
+      
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js" > </script>
+  </head>
+  <body>
+	  
+      
+      <div ng-controller="indexCtrl">
+      
+          <label>SUMA</label> <br>
+          
+          <input type="number" ng-model="sumatorio1"> +
+          <input type="number" ng-model="sumatorio2"> =
+          {{resultado}}<br>
+          
+          <button ng-click="calcular()" > Calcular</button>
+          
+          
+           
+          
+          
+      </div>
+            
+     
+      <script>
+      
+          var miAplicacion = angular.module( 'miApp' , [] )
+          
+          miAplicacion.controller ( 'indexCtrl' , [ '$scope' , function($scope){
+          
+                    
+                    $scope.calcular = function(){
+                    
+                        $scope.resultado =  $scope.sumatorio1 + $scope.sumatorio2
+                        
+                    }
+          
+          }])
+          
+          
+          
+
+      </script>
+      
+
+  </body>
+</html>

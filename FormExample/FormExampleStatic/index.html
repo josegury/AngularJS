@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <title>Formulario</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="">
+    <meta name="author" content="Alex">
+    
+    <!-- Web Fonts  -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CShadows+Into+Light" rel="stylesheet" type="text/css">
+    
+    <!-- CSS -->
+    
+    <link rel="stylesheet" href="css/form.css">
+
+
+    <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.2.21/angular-route.min.js"></script>
+        
+
+</head>
+<body>
+    
+    <div align="center">
+
+      <h4>Registro</h4>
+
+        <form method="post" action="" ng-controller="registerController" name="signup_form" novalidate ng-submit="signupForm()">
+              <!--<label for="document">Documento&nbsp;&nbsp;-->
+                <i class="fa fa-question-circle" data-tooltip data-placement="right" data-original-title="NIF, NIE válido"></i></label>
+              <input 
+                     name="document" 
+                     type="text" 
+                     value="" 
+                     class="form-control input-lg" 
+                     ng-model="signup.document"  
+                     ng-minlength=9
+                     ng-maxlength=9
+                     placeholder="Documento*" 
+                     ng-model-options="{ updateOn: 'mousedown blur' }"
+                     required/>
+
+                <div class="error" ng-show="signup_form.document.$dirty && signup_form.document.$invalid">
+                    <small class="error" ng-show="signup_form.document.$error.required">Campo obligatorio.</small>
+                    <small class="error" ng-show="signup_form.document.$error.minlength || signup_form.document.$error.maxlength">
+                        Documento no válido. ¡Incluya el cero inicial y la letra final!</small>
+                </div>
+
+
+
+              <!--<label for="name">Nombre</label>-->
+              <input 
+                     type="text" 
+                     name="name"
+                     placeholder="Nombre"
+                     ng-model="signup.name" 
+                     value="" 
+                     class="form-control input-lg"  
+                     ng-minlength=2
+                     ng-maxlength=255
+                     ng-model-options="{ updateOn: 'mousedown blur' }"/>
+
+
+
+                <div class="error" ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+                    <small class="error" ng-show="signup_form.name.$error.minlength">M&iacute;nimo 2 caracteres.</small>
+                    <small class="error"  ng-show="signup_form.name.$error.maxlength">M&aacute;ximo 255 caracteres.</small>
+                </div>
+
+
+
+          <div class="form-group">
+            <div class="col-md-12">
+              <!--<label for="surnames">Apellidos</label>-->
+              <input 
+                     name="surnames" 
+                     type="text" 
+                     placeholder="Apellidos"
+                     ng-model="signup.surnames" 
+                     value="" 
+                     class="form-control input-lg"  
+                     ng-minlength=2
+                     ng-maxlength=255
+                     ng-model-options="{ updateOn: 'mousedown blur' }"/>
+                <div class="error" ng-show="signup_form.surnames.$dirty && signup_form.surnames.$invalid">
+                    <small class="error" ng-show="signup_form.surnames.$error.minlength">M&iacute;nimo 2 caracteres.</small>
+                    <small class="error" ng-show="signup_form.surnames.$error.maxlength">M&aacute;ximo 255 caracteres.</small>
+                </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-12">
+              <!--<label for="email">Email</label>-->
+              <input  
+                     type="email" 
+                     name="email" 
+                     value="" 
+                     placeholder="Correo electr&oacute;nico*"
+                     ng-model="signup.email" 
+                     value="" 
+                     class="form-control input-lg"  
+                     ng-maxlength=255
+                     ng-model-options="{ updateOn: 'mousedown blur' }"
+                     required/>
+                <div class="error" ng-show="signup_form.email.$dirty && signup_form.email.$invalid">
+                  <small class="error"ng-show="signup_form.email.$error.required">Campo obligatorio.</small>
+                  <small class="error" ng-show="signup_form.email.$error.email">Este email es err&oacute;neo, introduzca uno válido.</small>
+                  <small class="error" ng-show="signup_form.email.$error.maxlength">M&aacute;ximo 255 caracteres.</small>
+                </div>
+            </div>
+          </div>
+
+          <small class = "mensajeobligatorio">*: Campos obligatorios.</small>
+          <div class="row">
+            <div class="col-md-12">
+              <input 
+                     type="submit" 
+                     value="Enviar" 
+                     class="btn btn-success pull-right push-bottom" 
+                     data-loading-text="" 
+                     ng-click="submit(signup)"
+                     ng-disabled = "signup_form.document.$invalid || signup_form.password.$invalid || signup_form.email.$invalid || passinvalido || signup_form.re_password.$pristine">
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+</body>
