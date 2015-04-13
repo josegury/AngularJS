@@ -17,8 +17,8 @@
           <label> buscar </label>
           <input type="search" ng-model="busqueda" >
           
-          <p ng-repeat = " entrada in agenda | filter: busqueda  ">
-              {{ entrada.name }} :  {{ entrada.phone }}
+          <p ng-repeat = " persona  in agenda | filter: busqueda  ">
+              {{ persona .name }} :  {{ persona .phone }}
           </p>
              
         
